@@ -1,9 +1,12 @@
 const express = require('express');
 const config = require('./config');
+const videosApi = require('./routes/videos');
 
 const app = express();
 
-app.get('/hello', (req, res) => res.send('Hello World!'));
+app.use(express.json());
+
+videosApi(app);
 
 app.listen(config.port, () => {
     console.log(`API Server Listening on http://localhost:${config.port}`);
