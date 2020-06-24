@@ -1,4 +1,4 @@
-const Db = require('../lib/db');
+const { Db } = require('../lib/db');
 
 class VideosService {
     constructor() {
@@ -7,13 +7,14 @@ class VideosService {
     }
 
     async getVideos({ tags }) {
-        const videos = await this.db.getAll(this.collection, tags);
+        let videos = [];
+        tags ? videos = await this.db.getAllByTags(this.collection, tags) : videos = await this.db.getAll(this.collection);
 
-        return videos || [];
+        return videos;
     }
 
     async getVideo({ videoId }) {
-        const video = await this.db.getAll(this.collection, videoId);
+        const video = await this.db.get(this.collection, videoId);
 
         return video || {};
     }
@@ -37,4 +38,4 @@ class VideosService {
     }
 }
 
-module.exports = VideosService;
+module.exports = { VideosService };
