@@ -1,5 +1,5 @@
 # devflix
-> Una plataforma para recapitular todo el contenido generado por los desarrolladores del EA
+> Una plataforma para recapitular todo el contenido generado por colegas
 
 ## devflix-api
 ### Videos CRUD
